@@ -1,0 +1,16 @@
+{% extends "base.html" %} {% block title %}share{% endblock %}
+{% block content %}
+<h1 align="center">{{user.first_name}}'s Tasks</h1>
+<ul class="list-group list-group-flush" id="notes">
+    {% for note in user.notes %}
+    <li class="list-group-item">
+      <p>{{ note.id }}|{{ note.data }}</p>
+      {% if note.complete == False %}
+      <span class="ui gray label">Not Complete</span>
+      {% else %}
+      <span class="ui green label">Completed</span>
+      {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
